@@ -4,6 +4,8 @@ build
 coverage
 .pnpm-store
 *.log
+*.sarif
+results.sarif
 docs/adr/*.svg
 .agents
 
