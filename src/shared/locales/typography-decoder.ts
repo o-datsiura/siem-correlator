@@ -1,14 +1,14 @@
 const ENTITY_MAP: readonly (readonly [RegExp, string])[] = [
-  [/&amp;/g, "&"],
-  [/&lt;/g, "<"],
-  [/&gt;/g, ">"],
-  [/&quot;/g, '"'],
-  [/&apos;/g, "'"],
-  [/&nbsp;/g, "\u00A0"],
-  [/&hellip;/g, "\u2026"],
-  [/&mdash;/g, "\u2014"],
-  [/&ndash;/g, "\u2013"],
-  [/&times;/g, "\u00D7"],
+  [/&amp;/gu, "&"],
+  [/&lt;/gu, "<"],
+  [/&gt;/gu, ">"],
+  [/&quot;/gu, '"'],
+  [/&apos;/gu, "'"],
+  [/&nbsp;/gu, "\u00A0"],
+  [/&hellip;/gu, "\u2026"],
+  [/&mdash;/gu, "\u2014"],
+  [/&ndash;/gu, "\u2013"],
+  [/&times;/gu, "\u00D7"],
 ];
 
 export const decodeTypography = (value: string): string => {

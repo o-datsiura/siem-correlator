@@ -29,7 +29,7 @@ describe("JSX Event Handler Hygiene (Zero Inline Anonymous Callbacks)", () => {
   });
 
   it("ensures NO inline arrow functions inside JSX event handlers across all TSX files", () => {
-    const INLINE_ARROW_PATTERN = /\bon[A-Z]\w*\s*=\s*\{\s*(?:\([^)]*\)|[a-zA-Z0-9_$]+)\s*=>/;
+    const INLINE_ARROW_PATTERN = /\bon[A-Z]\w*\s*=\s*\{\s*(?:\([^)]*\)|[a-zA-Z0-9_$]+)\s*=>/u;
     const violations: { file: string; line: number; snippet: string }[] = [];
 
     for (const file of tsxFiles) {
@@ -51,7 +51,7 @@ describe("JSX Event Handler Hygiene (Zero Inline Anonymous Callbacks)", () => {
   });
 
   it("ensures NO inline anonymous function expressions inside JSX event handlers", () => {
-    const INLINE_ANON_FUNCTION_PATTERN = /\bon[A-Z]\w*\s*=\s*\{\s*function\b/;
+    const INLINE_ANON_FUNCTION_PATTERN = /\bon[A-Z]\w*\s*=\s*\{\s*function\b/u;
     const violations: { file: string; line: number; snippet: string }[] = [];
 
     for (const file of tsxFiles) {
@@ -73,7 +73,7 @@ describe("JSX Event Handler Hygiene (Zero Inline Anonymous Callbacks)", () => {
   });
 
   it("ensures NO direct unpacking of event.target.value inside JSX attributes", () => {
-    const INLINE_EVENT_TARGET_PATTERN = /\bon[A-Z]\w*\s*=\s*\{[^}]*\b(?:e|event)\.target\.value\b/;
+    const INLINE_EVENT_TARGET_PATTERN = /\bon[A-Z]\w*\s*=\s*\{[^}]*\b(?:e|event)\.target\.value\b/u;
     const violations: { file: string; line: number; snippet: string }[] = [];
 
     for (const file of tsxFiles) {
@@ -99,11 +99,11 @@ describe("JSX Event Handler Hygiene (Zero Inline Anonymous Callbacks)", () => {
     // Heavy algorithms, imperative data transformations, or raw iteration loops belong in hooks/ or utils/.
     const FORBIDDEN_ALGO_PATTERNS = [
       {
-        pattern: /for\s*\(\s*(?:const|let)\s+.*\s+of\s+.*\)\s*\{/,
+        pattern: /for\s*\(\s*(?:const|let)\s+.*\s+of\s+.*\)\s*\{/u,
         rule: "Imperative data transformation loops forbidden inside .tsx UI files. Move to dedicated hooks/ or utils/.",
       },
       {
-        pattern: /new\s+Map\s*<.*>\s*\(\s*\)/,
+        pattern: /new\s+Map\s*<.*>\s*\(\s*\)/u,
         rule: "Stateful/indexed data structures initialization forbidden in .tsx UI files. Move to hooks/ or utils/.",
       },
     ];

@@ -161,7 +161,7 @@ describe("Safe URL Protocol Validation & CSP Integrity", () => {
 
       expect(content).toContain('http-equiv="Content-Security-Policy"');
       expect(content).toMatch(
-        /content="default-src 'self'; script-src 'self'; connect-src 'self' blob:; style-src 'self' 'unsafe-inline';"/,
+        /content="default-src 'self'; script-src 'self'; connect-src 'self' blob:; style-src 'self' 'unsafe-inline';"/u,
       );
     });
   });

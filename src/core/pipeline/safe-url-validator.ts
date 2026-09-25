@@ -15,21 +15,21 @@ const FORBIDDEN_PSEUDO_PROTOCOLS = new Set([
 
 const ALLOWED_PROTOCOLS = new Set(["http:", "https:"]);
 
-const CONTROL_CHARS_AND_WHITESPACE_REGEX = /[\u0000-\u001F\u007F-\u009F\s]/g;
+const CONTROL_CHARS_AND_WHITESPACE_REGEX = /[\u0000-\u001F\u007F-\u009F\s]/gu;
 
-const FORBIDDEN_PSEUDO_PROTOCOL_REGEX = /^(?:javascript|data|vbscript|file|blob|about):/i;
+const FORBIDDEN_PSEUDO_PROTOCOL_REGEX = /^(?:javascript|data|vbscript|file|blob|about):/iu;
 
 const DOMAIN_CANDIDATE_REGEX =
-  /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?::\d{1,5})?(?:\/[^\s"'<>|]*)?$/;
+  /^[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+(?::\d{1,5})?(?:\/[^\s"'<>|]*)?$/u;
 
 const LOG_URL_OR_DOMAIN_REGEX =
-  /(?:(?:[a-zA-Z][a-zA-Z0-9+.-]*:)[^\s"'<>|]+|(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}(?::\d{1,5})?(?:\/[^\s"'<>|]*)?)/g;
+  /(?:(?:[a-zA-Z][a-zA-Z0-9+.-]*:)[^\s"'<>|]+|(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}(?::\d{1,5})?(?:\/[^\s"'<>|]*)?)/gu;
 
 function stripTrailingPunctuation(text: string): { cleanText: string; trailing: string } {
   let cleanText = text;
   let trailing = "";
 
-  const trailingPunctuationMatch = cleanText.match(/[,.;:]+$/);
+  const trailingPunctuationMatch = cleanText.match(/[,.;:]+$/u);
 
   if (trailingPunctuationMatch) {
     trailing = trailingPunctuationMatch[0] + trailing;
@@ -103,7 +103,7 @@ export class SafeUrlValidator {
 
     const tokens: IUrlToken[] = [];
     let lastIndex = 0;
-    const regex = new RegExp(LOG_URL_OR_DOMAIN_REGEX.source, "g");
+    const regex = new RegExp(LOG_URL_OR_DOMAIN_REGEX.source, "gu");
     let match: RegExpExecArray | null = null;
 
     while ((match = regex.exec(line)) !== null) {

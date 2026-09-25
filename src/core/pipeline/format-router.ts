@@ -12,15 +12,15 @@ function generateId(): string {
 }
 
 const NGINX_CLF_PATTERN =
-  /^(\S{1,256})\s+-\s+\S{1,256}\s+\[([^\]]{1,128})\]\s+(?:"|&quot;)(\S{1,16})\s+(\S{1,2048})\s+\S{1,32}(?:"|&quot;)\s+(\d{1,5})\s+\d{1,16}\s+(?:"|&quot;)[^"]*?(?:"|&quot;)\s+(?:"|&quot;)([^"]*?)(?:"|&quot;)/;
+  /^(\S{1,256})\s+-\s+\S{1,256}\s+\[([^\]]{1,128})\]\s+(?:"|&quot;)(\S{1,16})\s+(\S{1,2048})\s+\S{1,32}(?:"|&quot;)\s+(\d{1,5})\s+\d{1,16}\s+(?:"|&quot;)[^"]*?(?:"|&quot;)\s+(?:"|&quot;)([^"]*?)(?:"|&quot;)/u;
 
 const SYSLOG_PATTERN =
-  /^(?:<\d{1,5}>)?(\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\S{1,256})\s+(\S{1,256})(?:\[(\d{1,10})\])?:\s*(.*)/;
+  /^(?:<\d{1,5}>)?(\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\S{1,256})\s+(\S{1,256})(?:\[(\d{1,10})\])?:\s*(.*)/u;
 
 const AUTH_LOG_PATTERN =
-  /^(\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\S{1,256})\s+sshd\[\d{1,10}\]:\s*(.*)/;
+  /^(\w{3}\s+\d{1,2}\s+\d{2}:\d{2}:\d{2})\s+(\S{1,256})\s+sshd\[\d{1,10}\]:\s*(.*)/u;
 
-const AUTH_IP_PATTERN = /(?:from|for)\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/;
+const AUTH_IP_PATTERN = /(?:from|for)\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/u;
 
 function detectFormat(line: string): LogFormat {
   if (line.length > 0 && line[0] === "{") {
@@ -143,7 +143,7 @@ function extractNginxEntry(line: string, rawInput: RawLogInput): ILogEntry | nul
   const userAgent = match[6] ?? "";
 
   const statusCode = parseInt(statusStr, 10);
-  const timestamp = Date.parse(timestampRaw.replace(/:/, " ").replaceAll("/", " "));
+  const timestamp = Date.parse(timestampRaw.replace(/:/u, " ").replaceAll("/", " "));
 
   return {
     id: generateId(),

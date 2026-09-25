@@ -34,7 +34,7 @@ describe("File Upload & Ingestion Security Architecture Invariants", () => {
   const allSourceFiles = getAllCodeFiles(srcDir);
 
   it("strictly forbids FileReader.readAsText() across the entire src directory", () => {
-    const FORBIDDEN_PATTERN = /\.readAsText\s*\(/;
+    const FORBIDDEN_PATTERN = /\.readAsText\s*\(/u;
     const violations: { file: string; line: number; snippet: string }[] = [];
 
     for (const file of allSourceFiles) {
