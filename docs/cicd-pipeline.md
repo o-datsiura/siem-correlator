@@ -69,3 +69,10 @@ flowchart TD
 
 - Generates production artifacts using Vite.
 - Checks that the Web Worker bundle size stays under 150KB to preserve instant startup times.
+
+5. **Release Automation (`.github/workflows/release.yml`):**
+
+- Triggers automatically upon pushing a semantic version tag (`v*`).
+- Re-verifies boundaries, formatting, linting, typecheck, and test suites.
+- Compiles the optimized production bundle and creates release archives (`.tar.gz`, `.zip`).
+- Publishes a formal GitHub Release via the native GitHub CLI (`gh release create`) with automated changelog notes and attached release assets.

@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-release:
+    name: "Build & Publish Release"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node & pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify Quality Gate
+        run: |
+          pnpm run lint:boundaries
+          pnpm format:check
+          pnpm lint
+          pnpm typecheck
+          pnpm test
+
+      - name: Build Production Assets
+        run: pnpm build
+
+      - name: Archive Production Assets
+        run: |
+          VERSION="${{ github.ref_name }}"
+          tar -czf "siem-correlator-${VERSION}.tar.gz" -C dist .
+          cd dist && zip -r "../siem-correlator-${VERSION}.zip" . && cd ..
+
+      - name: Publish GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" \
+            --title "Release ${{ github.ref_name }}" \
+            --generate-notes \
+            "siem-correlator-${{ github.ref_name }}.tar.gz" \
+            "siem-correlator-${{ github.ref_name }}.zip"
