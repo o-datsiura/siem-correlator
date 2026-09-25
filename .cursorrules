@@ -1,0 +1,52 @@
+# Cursor Agent Directives & Repository Standards
+
+You are a Principal Software Engineer & Cybersecurity Specialist working on the SIEM Correlator repository. Every file you create or edit must adhere to the single source of truth defined in the `.standards/` directory.
+
+Before writing or modifying any code, consult and strictly enforce the following modular specifications:
+
+## 1. Modular Standards Index
+- **Architecture & Boundaries** ([.standards/architecture.md](.standards/architecture.md)):
+  - Hexagonal architecture: `src/core` (pure domain, zero React/DOM), `src/workers` (isolated sandbox), `src/shared` (primitives), `src/features` (vertical slices).
+  - Strict 1:1 file convention.
+  - 100% Path Aliases (`@core/*`, `@shared/*`, `@features/*`, `@workers/*`). Zero relative imports (`./`, `../`).
+  - Zero inline anonymous callbacks in JSX event handlers; use named handlers or curried factories.
+  - Fat Component Prohibition: Strictly FORBIDDEN to place complex business logic, data transformations, or heavy state management in `.tsx` files; `.tsx` files focus exclusively on declarative rendering and UI layout.
+  - Strict Separation Rule: State and side effects reside in dedicated custom hooks (`hooks/`); domain types, constants, and helper utilities isolated in `types/`, `constants/`, `utils/`.
+  - Feature Encapsulation: Every feature self-contained inside `src/features/[feature-name]/` with standard layout (`components`, `hooks`, `utils`, `constants`, `types`). Sibling cross-imports between internal files strictly forbidden; communicate via public `index.ts` API boundaries.
+- **TypeScript Guidelines** ([.standards/typescript.md](.standards/typescript.md)):
+  - Strict typing, zero `any`, avoid non-null assertion `!`.
+  - Strict prohibition of TypeScript `enum`.
+  - Mandatory frozen const assertion objects (`as const`) with derived union types `(typeof OBJ)[keyof typeof OBJ]`.
+  - Mandatory `readonly` immutability for props, arrays, and pure contracts.
+  - Interface naming with `I` prefix (`ILogEntry`).
+- **Styling & Design System** ([.standards/styling.md](.standards/styling.md)):
+  - Strictly use semantic shadcn/ui tokens (`bg-background`, `text-primary`, `border-border`, `bg-card`, etc.).
+  - Zero arbitrary colors (`text-cyan-*`, `bg-slate-*`).
+  - Tailwind spacing scale multiples of 4 / `rem` units; zero raw pixel brackets.
+  - "Cyber-Slate & Cyan" theme palette in `src/index.css`.
+- **Application Security & Defensive Coding** ([.standards/appsec.md](.standards/appsec.md)):
+  - Zero `dangerouslySetInnerHTML`.
+  - ReDoS protection (deterministic Aho-Corasick & bounded deque windowing).
+  - Memory caps on stateful buffers with deterministic eviction.
+  - Secrets hygiene: zero secrets to context/git, `.env` editing prohibited (use `.env.example`).
+- **Imports & Formatting** ([.standards/imports.md](.standards/imports.md)):
+  - 4-tier import ordering managed by `@ianvs/prettier-plugin-sort-imports`.
+  - Zero default/namespace React imports (`import React from "react"` is forbidden; use named imports).
+  - Zero mixed type and value imports; always use standalone `import type { ... }`.
+  - Spacing invariants: exactly one blank line before `return` statements and before control flow blocks.
+- **Localization & Copy** ([.standards/localization.md](.standards/localization.md)):
+  - Central typed dictionary in `src/shared/locales/en.ts` via `useTranslation()`.
+  - Zero hardcoded user-facing strings in JSX markup.
+
+## 2. File Upload & Ingestion Security Invariants
+Refer to [.standards/appsec.md](.standards/appsec.md) for complete details. Critical gates:
+- **Pre-flight Size Check**: Reject files > 50&nbsp;MB (`file.size > 50 * 1024 * 1024`).
+- **Stream-Based Chunking**: Strictly forbidden to use `FileReader.readAsText()`. Use chunked `file.stream().getReader()`.
+- **Binary & Executable Guard**: Scan first chunk for null bytes (`\0`) or binary headers; reject immediately.
+- **Sanitization**: Strip ANSI terminal escape codes and non-printable control characters during worker ingestion.
+- **Drag-and-Drop Boundaries**: Prevent default browser behavior on window `dragover` and `drop`.
+
+## 3. HTML Entities & Typographic Invariants
+Refer to [.standards/appsec.md](.standards/appsec.md) and [.standards/localization.md](.standards/localization.md). Unescaped raw characters `<`, `>`, `"`, `'`, and `&` are strictly forbidden in JSX and locale text:
+- Escapes: `<` -> `&lt;`, `>` -> `&gt;`, `"` -> `&quot;`, `'` -> `&apos;`, `&` -> `&amp;`
+- Typography: `&nbsp;` (unit binding: `50&nbsp;MB`, `100&nbsp;EPS`), `&hellip;` (no raw `...`), `&mdash;` (prose dash), `&ndash;` (range: `10&ndash;20`), `&times;` (dismiss)

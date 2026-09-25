@@ -1,0 +1,23 @@
+# Secrets & Environment Files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.cert
+*.pfx
+secrets/
+credentials.json
+
+# Local tooling & DB dumps
+*.sqlite
+*.sqlite3
+*.db
+local-certs/
+
+# Build artifacts & packages
+node_modules/
+dist/
+build/
+coverage/
+.pnpm-store/

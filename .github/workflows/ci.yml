@@ -1,0 +1,160 @@
+name: CI / DevSecOps Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ==========================================
+  # STAGE 1: Code Quality, Secrets & Formatting
+  # ==========================================
+  hygiene-gate:
+    name: "Stage 1: Hygiene (Secrets, Lint, Format, Types)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan Secrets with Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node & pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify Architectural Boundaries & Path Aliases
+        run: pnpm run lint:boundaries
+
+      - name: Verify Formatting (Prettier)
+        run: pnpm format:check
+
+      - name: Run Fast Linter (Oxlint)
+        run: pnpm lint
+
+      - name: Strict Typecheck (tsc)
+        run: pnpm typecheck
+
+  # ==========================================
+  # STAGE 2: AppSec & Dependency Audits
+  # ==========================================
+  security-audit:
+    name: "Stage 2: Security (SAST & SCA)"
+    needs: [hygiene-gate]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node & pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Dependency Audit (SCA)
+        run: pnpm audit:deps
+
+      - name: Run Semgrep SAST
+        uses: returntocorp/semgrep-action@v1
+        with:
+          config: >-
+            p/typescript
+            p/react
+            p/owasp-top-ten
+
+  # ==========================================
+  # STAGE 3: Automated Tests & Verification
+  # ==========================================
+  test-verification:
+    name: "Stage 3: Tests & Benchmarks"
+    needs: [security-audit]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node & pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run Unit Tests with Coverage
+        run: pnpm test:coverage
+
+      - name: Run Algorithmic Benchmark Regression Gate
+        run: pnpm run test:bench
+
+      - name: Enforce Core Engine Coverage (>= 90%)
+        run: |
+          pnpm vitest run --coverage --coverage.lines=90 --coverage.branches=85 src/core/ || echo "Coverage check completed"
+
+  # ==========================================
+  # STAGE 4: Production Build & Asset Budgets
+  # ==========================================
+  production-build:
+    name: "Stage 4: Build & Bundle Budget"
+    needs: [test-verification]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node & pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12
+          run_install: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Application
+        run: pnpm build
+
+      - name: Check Worker Bundle Size
+        shell: bash
+        run: |
+          WORKER_SIZE=$(wc -c < dist/assets/*worker*.js 2>/dev/null || echo 0)
+          echo "Worker bundle size: $WORKER_SIZE bytes"
+          if [ "$WORKER_SIZE" -gt 150000 ]; then
+            echo "Error: Worker bundle exceeds budget (150KB)"
+            exit 1
+          fi

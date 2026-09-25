@@ -1,0 +1,12 @@
+if git diff --cached --name-only | grep -E '(^|/)\.env(\..+)?$' | grep -v '\.env\.example$' >/dev/null 2>&1; then
+  echo "❌ Security Error: Attempting to commit .env file! Only .env.example is allowed in version control."
+  exit 1
+fi
+
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --verbose
+fi
+
+npx lint-staged
+pnpm run lint:boundaries
+pnpm run typecheck

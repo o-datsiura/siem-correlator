@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1790197029709" clover="3.2.0">
+  <project timestamp="1790197029709" name="All files">
+    <metrics statements="424" coveredstatements="256" conditionals="233" coveredconditionals="80" methods="84" coveredmethods="48" elements="741" coveredelements="384" complexity="0" loc="424" ncloc="424" packages="5" files="15" classes="15"/>
+    <package name="algorithms">
+      <metrics statements="125" coveredstatements="90" conditionals="50" coveredconditionals="30" methods="22" coveredmethods="15"/>
+      <file name="aho-corasick.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/algorithms/aho-corasick.ts">
+        <metrics statements="65" coveredstatements="50" conditionals="31" coveredconditionals="20" methods="8" coveredmethods="5"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="13" count="158" type="stmt"/>
+        <line num="27" count="8" type="stmt"/>
+        <line num="28" count="8" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="33" count="20" type="cond" truecount="1" falsecount="1"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="20" type="stmt"/>
+        <line num="37" count="20" type="stmt"/>
+        <line num="38" count="20" type="stmt"/>
+        <line num="40" count="20" type="stmt"/>
+        <line num="41" count="158" type="stmt"/>
+        <line num="42" count="158" type="stmt"/>
+        <line num="43" count="158" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="150" type="stmt"/>
+        <line num="45" count="150" type="stmt"/>
+        <line num="47" count="158" type="stmt"/>
+        <line num="50" count="20" type="stmt"/>
+        <line num="54" count="8" type="stmt"/>
+        <line num="56" count="8" type="stmt"/>
+        <line num="57" count="17" type="stmt"/>
+        <line num="58" count="17" type="stmt"/>
+        <line num="61" count="8" type="stmt"/>
+        <line num="62" count="8" type="stmt"/>
+        <line num="63" count="150" type="stmt"/>
+        <line num="64" count="150" type="stmt"/>
+        <line num="66" count="150" type="stmt"/>
+        <line num="67" count="133" type="stmt"/>
+        <line num="69" count="133" type="stmt"/>
+        <line num="70" count="133" type="cond" truecount="2" falsecount="0"/>
+        <line num="71" count="124" type="stmt"/>
+        <line num="74" count="133" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="133" type="cond" truecount="1" falsecount="1"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="80" count="133" type="cond" truecount="1" falsecount="1"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="86" count="8" type="stmt"/>
+        <line num="90" count="10008" type="cond" truecount="1" falsecount="1"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="94" count="10008" type="cond" truecount="2" falsecount="0"/>
+        <line num="98" count="10008" type="stmt"/>
+        <line num="99" count="10008" type="stmt"/>
+        <line num="100" count="10008" type="stmt"/>
+        <line num="102" count="10008" type="stmt"/>
+        <line num="103" count="1378436" type="stmt"/>
+        <line num="105" count="1378436" type="cond" truecount="2" falsecount="0"/>
+        <line num="106" count="370017" type="cond" truecount="1" falsecount="1"/>
+        <line num="109" count="1378436" type="stmt"/>
+        <line num="110" count="1378436" type="cond" truecount="2" falsecount="0"/>
+        <line num="111" count="550066" type="stmt"/>
+        <line num="114" count="1378436" type="cond" truecount="2" falsecount="0"/>
+        <line num="115" count="20006" type="stmt"/>
+        <line num="116" count="20006" type="stmt"/>
+        <line num="124" count="10008" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="129" count="0" type="stmt"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="132" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="133" count="0" type="stmt"/>
+        <line num="134" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="137" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="145" count="0" type="stmt"/>
+      </file>
+      <file name="deque.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/algorithms/deque.ts">
+        <metrics statements="60" coveredstatements="40" conditionals="19" coveredconditionals="10" methods="14" coveredmethods="10"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="101011" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="19" type="stmt"/>
+        <line num="35" count="101011" type="stmt"/>
+        <line num="36" count="101011" type="stmt"/>
+        <line num="37" count="101011" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="50" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="61" count="101009" type="cond" truecount="2" falsecount="0"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="64" count="101008" type="stmt"/>
+        <line num="65" count="101008" type="stmt"/>
+        <line num="66" count="101008" type="stmt"/>
+        <line num="67" count="101008" type="stmt"/>
+        <line num="68" count="101008" type="stmt"/>
+        <line num="72" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="75" count="4" type="stmt"/>
+        <line num="79" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="87" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="97" count="1" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="104" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="112" count="19" type="stmt"/>
+        <line num="113" count="19" type="stmt"/>
+        <line num="114" count="132028" type="stmt"/>
+        <line num="116" count="19" type="stmt"/>
+        <line num="117" count="19" type="stmt"/>
+        <line num="118" count="19" type="stmt"/>
+      </file>
+    </package>
+    <package name="domain">
+      <metrics statements="38" coveredstatements="31" conditionals="2" coveredconditionals="0" methods="7" coveredmethods="6"/>
+      <file name="enums.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/domain/enums.ts">
+        <metrics statements="29" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+      </file>
+      <file name="mitre-catalog.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/domain/mitre-catalog.ts">
+        <metrics statements="9" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="pipeline">
+      <metrics statements="122" coveredstatements="68" conditionals="119" coveredconditionals="29" methods="21" coveredmethods="15"/>
+      <file name="ansi-sanitizer-handler.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/pipeline/ansi-sanitizer-handler.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+      </file>
+      <file name="format-router.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/pipeline/format-router.ts">
+        <metrics statements="85" coveredstatements="34" conditionals="109" coveredconditionals="21" methods="12" coveredmethods="6"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="71" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="74" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="81" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="82" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="83" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="93" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="106" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="140" count="1" type="stmt"/>
+        <line num="141" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="143" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="144" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="145" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="146" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="147" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="148" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="150" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="155" count="1" type="stmt"/>
+        <line num="176" count="0" type="stmt"/>
+        <line num="177" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="179" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="180" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="181" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="183" count="0" type="stmt"/>
+        <line num="184" count="0" type="stmt"/>
+        <line num="186" count="0" type="stmt"/>
+        <line num="203" count="0" type="stmt"/>
+        <line num="204" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="206" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="207" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="208" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="209" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="211" count="0" type="stmt"/>
+        <line num="212" count="0" type="stmt"/>
+        <line num="214" count="0" type="stmt"/>
+        <line num="228" count="3" type="stmt"/>
+        <line num="242" count="0" type="stmt"/>
+        <line num="246" count="4" type="stmt"/>
+        <line num="248" count="4" type="cond" truecount="2" falsecount="3"/>
+        <line num="250" count="0" type="stmt"/>
+        <line num="251" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="254" count="1" type="stmt"/>
+        <line num="255" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="258" count="0" type="stmt"/>
+        <line num="259" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="262" count="0" type="stmt"/>
+        <line num="263" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="266" count="3" type="stmt"/>
+      </file>
+      <file name="handler.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/pipeline/handler.ts">
+        <metrics statements="9" coveredstatements="8" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="12" type="stmt"/>
+        <line num="13" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="16" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+      </file>
+      <file name="redos-guard-handler.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/pipeline/redos-guard-handler.ts">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="8" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+      </file>
+      <file name="sanitization-chain.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/pipeline/sanitization-chain.ts">
+        <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+      </file>
+      <file name="xss-shield-handler.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/pipeline/xss-shield-handler.ts">
+        <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="15207" type="stmt"/>
+        <line num="17" count="15207" type="stmt"/>
+        <line num="18" count="15207" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="rules">
+      <metrics statements="116" coveredstatements="64" conditionals="54" coveredconditionals="21" methods="20" coveredmethods="10"/>
+      <file name="detection-engine.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/rules/detection-engine.ts">
+        <metrics statements="42" coveredstatements="18" conditionals="14" coveredconditionals="2" methods="7" coveredmethods="3"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="33" count="4" type="stmt"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="66" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+      </file>
+      <file name="rule.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/rules/rule.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+      </file>
+      <file name="signature-rule.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/rules/signature-rule.ts">
+        <metrics statements="17" coveredstatements="15" conditionals="10" coveredconditionals="7" methods="5" coveredmethods="4"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+      </file>
+      <file name="sliding-window-rule.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/rules/sliding-window-rule.ts">
+        <metrics statements="56" coveredstatements="31" conditionals="28" coveredconditionals="12" methods="7" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="52" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+        <line num="61" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="66" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="67" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="77" count="3" type="stmt"/>
+        <line num="79" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="80" count="0" type="stmt"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="84" count="3" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="87" count="3" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="94" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="115" count="1" type="stmt"/>
+        <line num="116" count="1" type="stmt"/>
+        <line num="119" count="2" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="133" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="134" count="0" type="stmt"/>
+        <line num="138" count="0" type="stmt"/>
+        <line num="139" count="0" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="148" count="0" type="stmt"/>
+        <line num="149" count="0" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+        <line num="152" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="153" count="0" type="stmt"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="158" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="159" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="specifications">
+      <metrics statements="23" coveredstatements="3" conditionals="8" coveredconditionals="0" methods="14" coveredmethods="2"/>
+      <file name="base-specification.ts" path="/Users/o.datsiura/.gemini/antigravity-ide/scratch/siem-rule-engine/src/core/specifications/base-specification.ts">
+        <metrics statements="23" coveredstatements="3" conditionals="8" coveredconditionals="0" methods="14" coveredmethods="2"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="101" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

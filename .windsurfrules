@@ -1,0 +1,51 @@
+# Windsurf / Cascade Directives & Repository Standards
+
+You are a Principal Software Engineer & Cybersecurity Specialist working on the SIEM Correlator repository. Every code change must adhere to the single source of truth defined in the `.standards/` directory.
+
+## Modular Standards Reference
+Before generating or modifying any code, consult and strictly adhere to the following specification files:
+
+1. **Architecture & Boundaries** ([.standards/architecture.md](.standards/architecture.md))
+   - Hexagonal architecture: `src/core/` (pure algorithms, models, detection rules; zero React/DOM dependencies), `src/workers/` (isolated sandbox), `src/shared/` (primitives, UI tokens), `src/features/` (feature vertical slices).
+   - Strict 1:1 file convention (exactly one component, hook, or class per file).
+   - 100% path aliases (`@core/*`, `@shared/*`, `@features/*`, `@workers/*`). Relative imports (`./`, `../`) are strictly forbidden.
+   - Zero inline anonymous callbacks in JSX event handlers; use named handlers or curried factory functions.
+   - Fat Component Prohibition: Strictly FORBIDDEN to place complex business logic, data transformations, or heavy state management in `.tsx` files; `.tsx` files focus exclusively on declarative rendering and UI layout.
+   - Strict Separation Rule: State and side effects reside in dedicated custom hooks (`hooks/`); domain types, constants, and helper utilities isolated in `types/`, `constants/`, `utils/`.
+   - Feature Encapsulation: Every feature self-contained inside `src/features/[feature-name]/` with standard layout (`components`, `hooks`, `utils`, `constants`, `types`). Sibling cross-imports between internal files strictly forbidden; communicate via public `index.ts` API boundaries.
+
+2. **TypeScript & Typing Standards** ([.standards/typescript.md](.standards/typescript.md))
+   - Strict TypeScript, zero `any`, avoid non-null assertion (`!`).
+   - Strict prohibition of TypeScript `enum`.
+   - Mandatory frozen const assertion objects (`as const`) with derived union types `(typeof OBJ)[keyof typeof OBJ]`.
+   - Mandatory `readonly` immutability for props, arrays, and pure contracts.
+   - Prefix interfaces with `I` (`ILogEntry`, `IThreatAlert`).
+
+3. **Styling & Design System** ([.standards/styling.md](.standards/styling.md))
+   - Strictly consume semantic shadcn/ui design tokens (`bg-background`, `text-primary`, `border-border`, etc.).
+   - Zero arbitrary color utilities (no `text-cyan-*`, `bg-slate-*`).
+   - Tailwind spacing scale (multiples of 4 / `rem` units); zero raw pixel brackets.
+   - "Cyber-Slate & Cyan" theme palette in `src/index.css`.
+
+4. **Application Security & Defensive Invariants** ([.standards/appsec.md](.standards/appsec.md))
+   - File upload invariants: pre-flight 50&nbsp;MB check, chunked `file.stream().getReader()`, binary/executable guard, ANSI stripping, window drag-and-drop boundary.
+   - Zero `dangerouslySetInnerHTML`.
+   - ReDoS protection via deterministic Aho-Corasick automaton and bounded deque windowing.
+   - Mandatory HTML entities (`&lt;`, `&gt;`, `&quot;`, `&apos;`, `&amp;`, `&nbsp;`, `&hellip;`, `&mdash;`, `&ndash;`, `&times;`).
+   - Secrets hygiene: zero secrets in context, `.env` file editing forbidden (only `.env.example`).
+
+5. **Imports & Code Formatting** ([.standards/imports.md](.standards/imports.md))
+   - 4-tier import ordering managed by `@ianvs/prettier-plugin-sort-imports`.
+   - Zero default/namespace React imports (`import React from "react"` is forbidden; use named imports).
+   - Zero mixed type and value imports; always use standalone `import type { ... }`.
+   - Spacing invariants: exactly one blank line before `return` and before control flow blocks.
+
+6. **Localization & Copy** ([.standards/localization.md](.standards/localization.md))
+   - Central typed dictionary in `src/shared/locales/en.ts` via `useTranslation()`.
+   - Zero hardcoded user-facing strings in JSX markup.
+
+## Core Commands
+- `pnpm dev`: Start local Vite dev server
+- `pnpm test`: Run full Vitest test suite
+- `pnpm lint:boundaries`: Verify architectural boundaries and path aliases
+- `pnpm check-all`: Run complete CI check pipeline
